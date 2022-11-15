@@ -13,7 +13,6 @@ export const Heading: React.FC<Heading> = (
 ) => {
   const HeadingStyled = {
     color: color || "#2eac68",
-    textAlign: align || "center",
     margin: margin ? margin + "px" : "20px",
     fontSize: h2 ? "1.2em" : h3 ? "1em" : "3em",
     lineHeight: 1.2,

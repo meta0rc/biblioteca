@@ -5,13 +5,13 @@ import { Container, Form } from "./style"
 import { Logo } from '../../components/logo/Logo'
 
 export const Admin = () => {
-    const [values, setValues] = useState()
+    const [values, setValues] = useState({})
 
-    const onChange = (e) => {
+    const onChange = (e : any) => {
         const { name, value } = e.target
         setValues({...values, [name]: value})
     }   
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:any) => {
         e.preventDefault()
         location.href = "/admin/control"
     }

@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import config from "./config.json";
 import Quagga from "quagga";
 
-const Scanner = (props: any) => {
+export const Scanner = (props) => {
   const { onDetected } = props;
 
   useEffect(() => {
-    Quagga.init(config, (err: any) => {
+    Quagga.init(config, (err) => {
       if (err) {
         console.log(err, "error msg");
       }
@@ -17,7 +17,7 @@ const Scanner = (props: any) => {
     });
 
     //detecting boxes on stream
-    Quagga.onProcessed((result: any) => {
+    Quagga.onProcessed((result) => {
       var drawingCtx = Quagga.canvas.ctx.overlay,
         drawingCanvas = Quagga.canvas.dom.overlay;
 
@@ -30,10 +30,10 @@ const Scanner = (props: any) => {
             Number(drawingCanvas.getAttribute("height"))
           );
           result.boxes
-            .filter(function(box: any) {
+            .filter(function(box) {
               return box !== result.box;
             })
-            .forEach(function(box: any) {
+            .forEach(function(box) {
               Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, {
                 color: "green",
                 lineWidth: 2
@@ -62,7 +62,7 @@ const Scanner = (props: any) => {
     Quagga.onDetected(detected);
   }, []);
 
-  const detected = (result: any) => {
+  const detected = (result) => {
     onDetected(result.codeResult.code);
   };
 
@@ -74,4 +74,3 @@ const Scanner = (props: any) => {
   );
 };
 
-export default Scanner;
