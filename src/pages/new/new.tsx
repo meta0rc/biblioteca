@@ -32,7 +32,7 @@ export const NewLocation = () => {
       <div className="container">
         {camera && <Scanner onDetected={onDetected} />}
       </div>
-      { book && <h1 style={{color: '#fff'}}>{ book.title } </h1>}
+      { book && <h1>{ book.title } </h1>}
     </div>
   );
 };
