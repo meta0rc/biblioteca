@@ -1,5 +1,5 @@
 import { Heading } from "../heading/Heading";
-import Scanner from "../scanner/Scanner";
+import {Scanner} from "../scanner/Scanner";
 import { List, ListItem } from "./styled";
 
 type alocados = {
