@@ -6,13 +6,14 @@ export const NewLocation = () => {
   const [camera, setCamera] = useState(false);
   const [result, setResult] = useState(null);
   const admin = useContext(AdminContext)
-  const [book, setBook] = useState(null)
+  const [book, setBook] = useState<any>(null)
 
   useEffect(() => {
     if(result) {
       getBook(result)
     }
   }, [result])
+
   const getBook = async (isbn: string) => {
     const res = await admin.registerDonation(isbn)
     if(res) {
@@ -31,7 +32,7 @@ export const NewLocation = () => {
       <div className="container">
         {camera && <Scanner onDetected={onDetected} />}
       </div>
-      { book && <h1> {book} </h1>}
+      { book && <h1 style={{color: '#fff'}}>{ book.title } </h1>}
     </div>
   );
 };
